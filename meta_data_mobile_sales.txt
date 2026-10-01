@@ -1,0 +1,60 @@
+MOBILE PHONE SALES ANALYTICS — DATA METADATA
+==============================================
+
+Source workbook:
+Day - 30 - Mobile Sales Data.xlsx
+
+Main source sheet:
+Sheet1
+
+Source rows: 3,835
+Source columns: 16
+Observed date range: 2021-10-09 to 2024-10-08
+
+CORE FIELDS
+-----------
+Transaction ID     Unique transaction identifier in the supplied data.
+Day                Day of month.
+Month              Numeric month.
+Year               Calendar year.
+Day Name           Day-of-week label. Abbreviated values in the source are standardized in the portfolio fact table.
+Brand              Mobile-phone brand.
+Units Sold         Quantity sold in the transaction.
+Price Per Unit     Price for one unit.
+Customer Name      Customer name field supplied in the source.
+Customer Age       Customer age field supplied in the source.
+City               Customer/transaction city field supplied in the source.
+Payment Method     Payment method.
+Customer Ratings   Rating value supplied in the source.
+Mobile Model       Mobile phone model.
+
+DERIVED FIELDS
+--------------
+Date               Constructed from Year + Month + Day.
+Total Sales        Units Sold * Price Per Unit.
+Year_Month         YYYY-MM analytical date label in dim_date.
+
+CORE KPIs
+---------
+Total Sales = SUM(Total Sales)
+Total Units = SUM(Units Sold)
+Transactions = DISTINCTCOUNT(Transaction ID)
+Average Price per Unit = AVERAGE(Price Per Unit)
+Average Sales per Transaction = AVERAGE(Total Sales)
+
+DATA MODEL
+----------
+fact_mobile_sales is the transaction-level fact table.
+dim_date supports time analysis.
+dim_brands supports brand filtering.
+dim_cities supports geographic filtering.
+dim_payment_methods supports payment analysis.
+dim_mobile_models supports model analysis.
+
+QUALITY NOTES
+-------------
+- The source contains both full day names and a small number of abbreviated day names; abbreviations are standardized.
+- Customer names repeat and customer age is not stable for every repeated name, so Customer Age is retained as a transaction-level attribute rather than treated as a slowly changing customer dimension.
+- 2021 and 2024 are partial years in the supplied data.
+- The dashboard KPI labeled "Average" matches the average Price Per Unit calculation (approximately $40.11K).
+- Sales are calculated as Units Sold multiplied by Price Per Unit.
