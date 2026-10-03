@@ -95,6 +95,7 @@ These findings describe patterns in the available transaction data; they should 
 * [`metrics_list.xlsx`](metrics_list.xlsx) — metric definitions and business meaning
 * [`Data/`](Data/) — portfolio-ready dimension and fact CSV files
 * [`meta_data_mobile_sales.txt`](meta_data_mobile_sales.txt) — data dictionary and modeling notes
+* [source_dataset.xlsx](source_dataset.xlsx) — original source dataset used for the analysis
 
 ## Important Limitation
 
