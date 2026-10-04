@@ -2,7 +2,7 @@ MOBILE PHONE SALES ANALYTICS — DATA METADATA
 ==============================================
 
 Source workbook:
-Day - 30 - Mobile Sales Data.xlsx
+source_dataset.xlsx
 
 Main source sheet:
 Sheet1
